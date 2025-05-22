@@ -26,10 +26,8 @@ A simple community-focused website built with HTML, PHP, JavaScript, and MySQL.
 ## How to Run
 
 1. Copy to `htdocs` in XAMPP
-2. Import `sql/database.sql` into phpMyAdmin
+2. Import `final.sql` into phpMyAdmin
 3. Start Apache and MySQL via XAMPP
 4. Visit `http://localhost/community_connect`
 
-## Discussions
 
-Visit [GitHub Discussions](https://github.com/choiwangmo/community_connect/discussions) for task breakdown, schema planning, and collaboration history.
