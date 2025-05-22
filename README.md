@@ -1,7 +1,7 @@
 # Community_Connect
 Development of # Community Connect
 
-A simple community-focused website built with PHP, JavaScript, and MySQL.
+A simple community-focused website built with HTML, PHP, JavaScript, and MySQL.
 
 ## Group Members
 
