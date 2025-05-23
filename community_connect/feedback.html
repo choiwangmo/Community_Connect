@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Feedback | CommunityConnect</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header>
+    <nav class="navbar">
+      <h1 class="logo">CommunityConnect</h1>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="register.html">Register</a></li>
+        <li><a href="feedback.html" class="active">Feedback</a></li>
+        <li><a href="contact.html">contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+<!-- Feedback Form -->
+<section class="form-section">
+  <h2>We Value Your Feedback</h2>
+  <form id="feedbackForm" method="POST" action="submit_feedback.php">
+    <input type="text" id="name" name="name" placeholder="Your Name" required />
+    <input type="email" id="email" name="email" placeholder="Your Email" required />
+    <textarea id="message" name="message" placeholder="Write your feedback here..." required></textarea>
+    <button type="submit" class="btn">Submit</button>
+  </form>
+</section>
+
+
+  <!-- Feedback Modal -->
+  <div class="modal-overlay" id="feedbackModal">
+    <div class="modal-box">
+      <p id="modalMessage">✅ Feedback sent successfully!</p>
+      <button class="btn" onclick="closeModal()">OK</button>
+    </div>
+  </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const form = document.getElementById("feedbackForm");
+  
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+  
+        const formData = new FormData(form);
+  
+        fetch("submit_feedback.php", {
+          method: "POST",
+          body: formData
+        })
+          .then(response => response.text())
+          .then(response => {
+            document.getElementById("modalMessage").innerText = response;
+            document.getElementById("feedbackModal").style.display = "flex";
+            form.reset();
+          })
+          .catch(error => {
+            document.getElementById("modalMessage").innerText = "❌ Failed to submit feedback.";
+            document.getElementById("feedbackModal").style.display = "flex";
+          });
+      });
+    });
+  
+    function closeModal() {
+      document.getElementById("feedbackModal").style.display = "none";
+    }
+  </script>
+  
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Bhutanese Community in Canberra. All rights reserved.</p>
+  </footer>
+
+  
+</body>
+</html>

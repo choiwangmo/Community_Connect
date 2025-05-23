@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register | CommunityConnect</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header>
+    <nav class="navbar">
+      <h1 class="logo">CommunityConnect</h1>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="register.html" class="active">Register</a></li>
+        <li><a href="feedback.html">feedback</a></li>
+        <li><a href="contact.html">contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Registration Section -->
+<section class="form-section">
+  <h2>Register for an Event</h2>
+  <form id="registrationForm" method="POST" action="submit_registration.php">
+    <input type="text" id="name" name="name" placeholder="Full Name" required />
+    <input type="email" id="email" name="email" placeholder="Email Address" required />
+    <input type="tel" id="phone" name="phone" placeholder="Phone Number (optional)" />
+    
+    <select id="selectedEvent" name="event" required>
+      <option value="">Select an Event</option>
+      <option value="National Day">National Day</option>
+      <option value="Winter Prayer">Winter Prayer</option>
+    </select>
+    
+    <textarea id="comments" name="comments" placeholder="Additional Comments..."></textarea>
+    <button type="submit" class="btn">Submit</button>
+  </form>
+</section>
+
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Bhutanese Community in Canberra. All rights reserved.</p>
+  </footer>
+
+  
+</body>
+</html>

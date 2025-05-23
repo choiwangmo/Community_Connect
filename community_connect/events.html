@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Events | CommunityConnect</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header>
+    <nav class="navbar">
+      <h1 class="logo">CommunityConnect</h1>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="events.html" class="active">Events</a></li>
+        <li><a href="register.html">Register</a></li>
+        <li><a href="feedback.html">feedback</a></li>
+        <li><a href="contact.html">contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Event List -->
+  <section class="events-section">
+    <h2>Upcoming Events</h2>
+    <div class="event-grid">
+      <div class="event-card">
+        <h3>National Day</h3>
+        <p><strong>Date:</strong> Dec 17</p>
+        <p>Experience Bhutanese traditions, food, music, and more!</p>
+        <a href="#" class="btn detail-btn"
+           data-title="National Day Celebration"
+           data-description="Celebrate Bhutanese culture with music, dance, food stalls, and vibrant traditions. Join us on Dec 17 for a full day of fun!">Details</a>
+      </div>
+
+      <div class="event-card">
+        <h3>Prayer Ceremony</h3>
+        <p><strong>Date:</strong> July 10</p>
+        <p>A peaceful gathering with guided prayer and reflection.</p>
+        <a href="#" class="btn detail-btn"
+           data-title="Winter Prayer Ceremony"
+           data-description="Join us in July for a serene spiritual session focused on peace, healing, and community unity.">Details</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal -->
+  <div class="modal-overlay" id="eventModal">
+    <div class="modal-box">
+      <span class="close-btn" id="closeModal">&times;</span>
+      <h3 id="modalTitle">Title</h3>
+      <p id="modalDesc">Description</p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Bhutanese Community in Canberra. All rights reserved.</p>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

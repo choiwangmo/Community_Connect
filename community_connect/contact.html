@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | CommunityConnect</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header>
+    <nav class="navbar">
+      <h1 class="logo">CommunityConnect</h1>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="register.html">Register</a></li>
+        <li><a href="feedback.html">Feedback</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Contact Form -->
+  <section class="form-section">
+    <h2>Contact Us</h2>
+    <form id="contactForm" method="POST" action="submit_contact.php">
+      <input type="text" id="contactName" name="name" placeholder="Your Name" required />
+      <input type="email" id="contactEmail" name="email" placeholder="Your Email" required />
+      <textarea id="contactMessage" name="message" placeholder="Your Message" required></textarea>
+      <button type="submit" class="btn">Send Message</button>
+    </form>
+  </section>
+
+  <!-- Notification -->
+  <div class="notification" id="contactNotification"></div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Bhutanese Community in Canberra. All rights reserved.</p>
+  </footer>
+
+  <!-- JS -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const contactForm = document.getElementById("contactForm");
+      const contactNotification = document.getElementById("contactNotification");
+
+      contactForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const formData = new FormData(contactForm);
+
+        fetch("submit_contact.php", {
+          method: "POST",
+          body: formData
+        })
+          .then(response => response.text())
+          .then(result => {
+            contactNotification.textContent = result;
+            contactNotification.className = "notification success show";
+            contactForm.reset();
+          })
+          .catch(error => {
+            contactNotification.textContent = "❌ Failed to send message.";
+            contactNotification.className = "notification error show";
+          });
+
+        setTimeout(() => {
+          contactNotification.classList.remove("show");
+        }, 4000);
+      });
+    });
+  </script>
+</body>
+</html>
